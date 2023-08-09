@@ -6,13 +6,11 @@ public final class WisteriaMMO extends JavaPlugin {
 
     @Override
     public void onEnable() {
-
-
-
+        System.out.println("[WMMO] onEnable");
     }
 
     @Override
     public void onDisable() {
-        // Plugin shutdown logic
+        System.out.println("[WMMO] onDisable");
     }
 }
