@@ -2,3 +2,6 @@ name: Wisteria-MMO
 version: '${project.version}'
 main: dev.beabueno.wisteriammo.WisteriaMMO
 api-version: '1.20'
+commands:
+  wmmo:
+    description: "Main Wisteria MMO command"

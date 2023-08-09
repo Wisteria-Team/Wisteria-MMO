@@ -36,11 +36,11 @@ public class TestEvents implements Listener {
 
     @EventHandler
     public void onPlayerEggThrow(PlayerEggThrowEvent e) {
-        e.getPlayer().sendMessage(ChatColor.RED + "Egg thrown!");
+        e.getPlayer().sendMessage(ChatColor.AQUA + "Egg thrown!");
     }
 
     @EventHandler
     public void onServerLoad(ServerLoadEvent e) {
-        System.out.println(String.format("Server loaded: %s", e.getType().name()));
+        System.out.println(String.format("[WMMO] Server loaded: %s", e.getType().name()));
     }
 }
