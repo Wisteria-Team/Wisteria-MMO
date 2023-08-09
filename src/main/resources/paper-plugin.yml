@@ -1,4 +1,4 @@
-name: Wisteria MMO
+name: Wisteria-MMO
 version: '${project.version}'
 main: dev.beabueno.wisteriammo.WisteriaMMO
 api-version: '1.20'
