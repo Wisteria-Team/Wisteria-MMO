@@ -1,0 +1,21 @@
+
+ability:
+  quick_sword_attack:
+    name: "Ataque rapido"
+    description: "Aumenta la velocidad de ataque al usar espadas"
+    max_level: 100
+    min_unlock_level: 0
+    max_unlock_level: 40
+    xp_multiplier: 1
+    speed_improvement: 0.6 # % per level
+
+
+class:
+  fighter:
+    name: "Guerrero"
+    abilities:
+      - quick_sword_attack:
+          min_unlock_level: 5
+          max_unlock_level: 100
+          xp_multiplier: 1.5
+          speed_improvement: 0.9 # % per level
