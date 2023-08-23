@@ -15,6 +15,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.persistence.PersistentDataType;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,6 +25,8 @@ public class CustomItemSonicScrewdriver extends CustomItem implements Listener {
     private NamespacedKey keyCoordsX = new NamespacedKey(WisteriaMMO.getPluginInstance(), "coordsx");
     private NamespacedKey keyCoordsY = new NamespacedKey(WisteriaMMO.getPluginInstance(), "coordsy");
     private NamespacedKey keyCoordsZ = new NamespacedKey(WisteriaMMO.getPluginInstance(), "coordsz");
+
+    private static DecimalFormat dfPower = new DecimalFormat("#.####");
 
 
     @Override
@@ -40,7 +43,7 @@ public class CustomItemSonicScrewdriver extends CustomItem implements Listener {
         List<String> lore = new ArrayList<>();
 
         Double power = itemMeta.getPersistentDataContainer().get(keyPower, PersistentDataType.DOUBLE);
-        lore.add(ChatColor.BLUE + "Power: " + ChatColor.DARK_BLUE + power);
+        lore.add(ChatColor.BLUE + "Power: " + ChatColor.DARK_BLUE + dfPower.format(power));
         if (itemMeta.getPersistentDataContainer().has(keyCoordsX) &&
                 itemMeta.getPersistentDataContainer().has(keyCoordsY) &&
                 itemMeta.getPersistentDataContainer().has(keyCoordsZ) ) {
@@ -69,7 +72,7 @@ public class CustomItemSonicScrewdriver extends CustomItem implements Listener {
             ItemMeta itemMeta = itemStack.getItemMeta();
 
             if(e.getAction().equals(Action.RIGHT_CLICK_AIR)){
-                e.getPlayer().sendMessage(ChatColor.AQUA + " Sonic Screwdriver clicked on air!");
+                //e.getPlayer().sendMessage(ChatColor.AQUA + " Sonic Screwdriver clicked on air!");
                 if (e.getPlayer().isSneaking()) {
                     itemMeta.getPersistentDataContainer().remove(keyCoordsX);
                     itemMeta.getPersistentDataContainer().remove(keyCoordsY);
@@ -88,7 +91,7 @@ public class CustomItemSonicScrewdriver extends CustomItem implements Listener {
                 }
             } else if(e.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
                 Material clickedMaterial = e.getClickedBlock().getBlockData().getMaterial();
-                e.getPlayer().sendMessage(ChatColor.AQUA + " Sonic Screwdriver clicked on: " + clickedMaterial.toString() + "!");
+                //e.getPlayer().sendMessage(ChatColor.AQUA + " Sonic Screwdriver clicked on: " + clickedMaterial.toString() + "!");
                 if (e.getPlayer().isSneaking()) {
                     int coordsX = e.getClickedBlock().getLocation().getBlockX();
                     int coordsY = e.getClickedBlock().getLocation().getBlockY();
@@ -105,7 +108,8 @@ public class CustomItemSonicScrewdriver extends CustomItem implements Listener {
                 }
 
             }
+
+            e.setCancelled(true);
         }
-        e.setCancelled(true);
     }
 }
