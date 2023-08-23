@@ -43,4 +43,6 @@ public class TestEvents implements Listener {
     public void onServerLoad(ServerLoadEvent e) {
         System.out.println(String.format("[WMMO] Server loaded: %s", e.getType().name()));
     }
+
+
 }
