@@ -1,4 +1,9 @@
 
+db:
+  uri: "jdbc:mysql://localhost:3306/wmmo?useSSL=false"
+  user: "wmmo"
+  pw: "password"
+
 ability:
   quick_sword_attack:
     name: "Ataque rapido"
